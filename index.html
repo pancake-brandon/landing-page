@@ -71,124 +71,199 @@
                 backface-visibility: hidden;
             }
         }
+        /* Parallax background styles */
+        .parallax-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 400%;
+            background-image:
+                url('./images/images/2.svg'),
+                url('./images/images/2.svg');
+            background-size:
+                50px 100px,
+                50px 100px;
+            background-position:
+                0 0,
+                75px 50px;
+            background-repeat: repeat;
+            will-change: transform;
+            transform: translateZ(0);
+            opacity: 0.7;
+        }
+        /* Responsive background sizing */
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-size:
+                    40px 80px,
+                    40px 80px;
+                background-position:
+                    0 0,
+                    60px 40px;
+            }
+        }
+        /* Ensure content stays above parallax */
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
-<body class="bg-gray-50">
-    <!-- NavBar -->
-    <nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50 px-4 md:px-6 py-3 flex justify-between items-center">
-        <!-- Left: Logo + Pancake -->
-        <div class="flex items-center gap-2">
-            <a href="/">
-                <img src="./images/PancakeAppLogo/PancakeMoney.png" alt="Pancake Logo" class="w-7 h-7 object-contain" />
-            </a>
-            <a href="/" class="text-3xl font-bold text-black">Pancake</a>
-        </div>
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-container">
+        <div class="parallax-bg" id="parallax-bg"></div>
+    </div>
 
+    <!-- NavBar -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/90 backdrop-blur-md shadow-lg rounded-full px-6 md:px-8 py-3">
+        <div class="flex items-center gap-6 md:gap-8">
+            <!-- Left: Logo + Pancake -->
+            <div class="flex items-center gap-2">
+                <a href="/">
+                    <img src="./images/PancakeAppLogo/PancakeMoney.png" alt="Pancake Logo" class="w-7 h-7 object-contain" />
+                </a>
+                <a href="/" class="text-2xl md:text-3xl font-bold text-black">Pancake</a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#about" class="text-sm font-medium text-gray-700 hover:text-[#279B75] transition-colors">Our Mission</a>
+                <a href="#pancake-ai" class="text-sm font-medium text-gray-700 hover:text-[#279B75] transition-colors">Smarter Budgeting</a>
+                <a href="#data-privacy" class="text-sm font-medium text-gray-700 hover:text-[#279B75] transition-colors">Privacy</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section - WHITE -->
-    <section id="home" class="w-full flex md:flex-row flex-col items-center justify-center px-6 pt-28 pb-20 md:pt-16 md:pb-0 md:px-12 lg:px-24 gap-8 md:gap-12 bg-gray-50 min-h-screen">
-        <!-- Text Content -->
-        <div class="md:w-1/2 lg:w-5/12 text-center md:text-left">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-                Take control<br>of your finances,<br>one stack at a time.
-            </h1>
-            <p class="text-base sm:text-lg text-gray-600 mt-4 md:mt-6 max-w-lg mx-auto md:mx-0">
-                Budgeting simplified. Plan smarter and make your financial goals a reality with the help of Pancake. Coming soon to the App Store.
-            </p>
-            <!-- Waitlist Form -->
-            <div class="w-full mt-6 md:mt-8">
-                <form id="waitlist-form" class="space-y-3 max-w-md mx-auto md:mx-0">
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <input type="email" name="email" placeholder="Email address*" required
-                               class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#279B75] focus:ring-1 focus:ring-[#279B75]">
-                        <input type="text" name="first_name" placeholder="First name*" required
-                               class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#279B75] focus:ring-1 focus:ring-[#279B75]">
+    <section id="home" class="w-full flex items-center justify-center px-6 pt-28 pb-10 md:pt-24 md:pb-16 md:px-12 lg:px-24 min-h-screen">
+        <div class="w-full max-w-6xl bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
+            <div class="flex md:flex-row flex-col items-center justify-center gap-8 md:gap-12">
+                <!-- Text Content -->
+                <div class="md:w-1/2 lg:w-5/12 text-center md:text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                        Take control<br>of your finances,<br>one stack at a time.
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 mt-4 md:mt-6 max-w-lg mx-auto md:mx-0">
+                        Budgeting simplified. Plan smarter and make your financial goals a reality with the help of Pancake. Coming soon to the App Store.
+                    </p>
+                    <!-- Waitlist Form -->
+                    <div class="w-full mt-6 md:mt-8">
+                        <form id="waitlist-form" class="space-y-3 max-w-md mx-auto md:mx-0">
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <input type="email" name="email" placeholder="Email address*" required
+                                       class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#279B75] focus:ring-1 focus:ring-[#279B75]">
+                                <input type="text" name="first_name" placeholder="First name*" required
+                                       class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#279B75] focus:ring-1 focus:ring-[#279B75]">
+                            </div>
+                            <select name="use_case"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#279B75] focus:ring-1 focus:ring-[#279B75] text-gray-600">
+                                <option value="">What will you use Pancake for? (optional)</option>
+                                <option value="personal_budgeting">Personal Budgeting</option>
+                                <option value="debt_payoff">Debt Payoff Strategy</option>
+                                <option value="savings_goals">Savings Goals</option>
+                                <option value="all_of_the_above">All of the Above</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <button type="submit" class="w-full sm:w-auto px-8 py-2.5 bg-[#279B75] text-white font-semibold rounded-lg shadow-lg transition duration-300 hover:bg-[#2E8B57]">
+                                Join the Waitlist
+                            </button>
+                            <div id="form-message" class="hidden text-sm"></div>
+                        </form>
                     </div>
-                    <select name="use_case"
-                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-[#279B75] focus:ring-1 focus:ring-[#279B75] text-gray-600">
-                        <option value="">What will you use Pancake for? (optional)</option>
-                        <option value="personal_budgeting">Personal Budgeting</option>
-                        <option value="debt_payoff">Debt Payoff Strategy</option>
-                        <option value="savings_goals">Savings Goals</option>
-                        <option value="all_of_the_above">All of the Above</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <button type="submit" class="w-full sm:w-auto px-8 py-2.5 bg-[#279B75] text-white font-semibold rounded-lg shadow-lg transition duration-300 hover:bg-[#2E8B57]">
-                        Join the Waitlist
-                    </button>
-                    <div id="form-message" class="hidden text-sm"></div>
-                </form>
-            </div>
-        </div>
+                </div>
 
-        <!-- SVG Image -->
-        <div class="md:w-1/2 lg:w-5/12 flex justify-center md:justify-end">
-            <picture>
-                <source srcset="images/images/dashboard.png" media="(max-width: 768px)">
-                <img src="images/images/dashboard.svg" alt="Investing Illustration" class="svg-crisp w-full max-w-4xs md:max-w-2xs lg:max-w-xs" loading="lazy">
-            </picture>
+                <!-- SVG Image -->
+                <div class="md:w-1/2 lg:w-5/12 flex justify-center md:justify-end">
+                    <picture>
+                        <source srcset="images/images/dashboard.png" media="(max-width: 768px)">
+                        <img src="images/images/dashboard.svg" alt="Investing Illustration" class="svg-crisp w-full max-w-4xs md:max-w-2xs lg:max-w-xs" loading="lazy">
+                    </picture>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section - GREEN -->
-    <section id="about" class="flex md:flex-row flex-col items-center justify-center px-6 py-20 md:py-32 md:px-12 lg:px-24 gap-8 md:gap-12 bg-[#279B75]">
-        <!-- Mission Text -->
-        <div class="md:w-1/2 lg:w-5/12 text-left">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 md:mb-6">Our Mission</h1>
-            <p class="text-base sm:text-lg text-white leading-relaxed">
-                Consumer debt is at an all time high, and cost of living seems to go up by the hour.
-                At Pancake, we understand that confronting our finances can feel too time-consuming, overwhelming, and anxiety-inducing.
-                We think budgeting should be a source of comfort and security, not stress. No more spreadsheets or guesswork.
-                We want to help you take control of your finances — one stack at a time.
-            </p>
-        </div>
+    <section id="about" class="w-full flex items-center justify-center px-6 py-10 md:py-16 md:px-12 lg:px-24">
+        <div class="w-full max-w-6xl bg-[#279B75]/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
+            <div class="flex md:flex-row flex-col items-center justify-center gap-8 md:gap-12">
+                <!-- Mission Text -->
+                <div class="md:w-1/2 lg:w-5/12 text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 md:mb-6">Our Mission</h1>
+                    <p class="text-base sm:text-lg text-white leading-relaxed">
+                        Consumer debt is at an all time high, and cost of living seems to go up by the hour.
+                        At Pancake, we understand that confronting our finances can feel too time-consuming, overwhelming, and anxiety-inducing.
+                        We think budgeting should be a source of comfort and security, not stress. No more spreadsheets or guesswork.
+                        We want to help you take control of your finances — one stack at a time.
+                    </p>
+                </div>
 
-        <!-- SVG Image -->
-        <div class="md:w-1/2 lg:w-5/12 flex justify-center">
-            <img src="images/images/banking.svg" alt="Relax Illustration" class="svg-crisp w-full max-w-sm md:max-w-md lg:max-w-lg" loading="lazy">
+                <!-- SVG Image -->
+                <div class="md:w-1/2 lg:w-5/12 flex justify-center">
+                    <img src="images/images/banking.svg" alt="Relax Illustration" class="svg-crisp w-full max-w-sm md:max-w-md lg:max-w-lg" loading="lazy">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Pancake AI Section - WHITE -->
-    <section id="pancake-ai" class="flex md:flex-row flex-col-reverse items-center justify-center px-6 py-20 md:py-32 md:px-12 lg:px-24 gap-8 md:gap-12 bg-gray-50">
-        <!-- SVG Image -->
-        <div class="md:w-1/2 lg:w-5/12 flex justify-center">
-            <img src="images/images/ai_chat.svg" alt="AI Illustration" class="svg-crisp w-full max-w-sm md:max-w-md lg:max-w-lg" loading="lazy">
-        </div>
+    <section id="pancake-ai" class="w-full flex items-center justify-center px-6 py-10 md:py-16 md:px-12 lg:px-24">
+        <div class="w-full max-w-6xl bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
+            <div class="flex md:flex-row flex-col-reverse items-center justify-center gap-8 md:gap-12">
+                <!-- SVG Image -->
+                <div class="md:w-1/2 lg:w-5/12 flex justify-center">
+                    <img src="images/images/ai_chat.svg" alt="AI Illustration" class="svg-crisp w-full max-w-sm md:max-w-md lg:max-w-lg" loading="lazy">
+                </div>
 
-        <!-- Text Content -->
-        <div class="md:w-1/2 lg:w-5/12 text-left">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 md:mb-6">Smarter, Simpler Budgeting with AI</h1>
-            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-                Powered by Claude AI, Pancake analyzes your spending patterns and helps identify potential savings opportunities.
-                Automatically generate a personalized spending plan, receive useful insights, and start budgeting smarter and faster with Pancake.
-            </p>
+                <!-- Text Content -->
+                <div class="md:w-1/2 lg:w-5/12 text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 md:mb-6">Smarter, Simpler Budgeting with AI</h1>
+                    <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
+                        Powered by Claude AI, Pancake analyzes your spending patterns and helps identify potential savings opportunities.
+                        Automatically generate a personalized spending plan, receive useful insights, and start budgeting smarter and faster with Pancake.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Data Privacy Section - GREEN -->
-    <section id="data-privacy" class="flex md:flex-row flex-col items-center justify-center px-6 py-20 md:py-32 md:px-12 lg:px-24 gap-8 md:gap-12 bg-[#279B75]">
-        <!-- Text Content -->
-        <div class="md:w-1/2 lg:w-5/12 text-left">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 md:mb-6">Your Data Privacy Matters</h1>
-            <p class="text-base sm:text-lg text-white leading-relaxed">
-                At Pancake, your data privacy is our top priority.
-                We encrypt your information using the same standards that major banks use, and will never sell, share, or monetize your personal data to third parties.
-                We believe trust is earned, and protecting your privacy is fundamental to everything we do.
-            </p>
-        </div>
+    <section id="data-privacy" class="w-full flex items-center justify-center px-6 py-10 md:py-16 md:px-12 lg:px-24">
+        <div class="w-full max-w-6xl bg-[#279B75]/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
+            <div class="flex md:flex-row flex-col items-center justify-center gap-8 md:gap-12">
+                <!-- Text Content -->
+                <div class="md:w-1/2 lg:w-5/12 text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 md:mb-6">Your Data Privacy Matters</h1>
+                    <p class="text-base sm:text-lg text-white leading-relaxed">
+                        At Pancake, your data privacy is our top priority.
+                        We encrypt your information using the same standards that major banks use, and will never sell, share, or monetize your personal data to third parties.
+                        We believe trust is earned, and protecting your privacy is fundamental to everything we do.
+                    </p>
+                </div>
 
-        <!-- SVG Image -->
-        <div class="md:w-1/2 lg:w-5/12 flex justify-center">
-            <img src="images/images/data-privacy.svg" alt="Data Privacy Illustration" class="svg-crisp w-full max-w-sm md:max-w-md lg:max-w-lg" loading="lazy">
+                <!-- SVG Image -->
+                <div class="md:w-1/2 lg:w-5/12 flex justify-center">
+                    <img src="images/images/data-privacy.svg" alt="Data Privacy Illustration" class="svg-crisp w-full max-w-sm md:max-w-md lg:max-w-lg" loading="lazy">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-200 px-6 py-12 md:py-16 md:px-12 lg:px-24">
-        <div class="max-w-6xl mx-auto">
+    <footer class="w-full flex items-center justify-center px-6 py-10 md:py-16 md:px-12 lg:px-24 mb-10 md:mb-16">
+        <div class="w-full max-w-6xl bg-gray-100/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12">
             <div class="flex flex-col md:flex-row md:justify-between gap-10 md:gap-16">
                 <!-- Pancake Subsection -->
                 <div>
@@ -239,22 +314,56 @@
 
     <!-- JavaScript for Back to Top and Form -->
     <script>
+        // Parallax scrolling functionality
+        const parallaxBg = document.getElementById('parallax-bg');
+        let ticking = false;
+
+        // Set initial height based on document height
+        function setParallaxHeight() {
+            const docHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
+            const scrollDistance = docHeight - windowHeight;
+            const parallaxSpeed = 0.5;
+
+            // Calculate total height needed to cover entire scroll with parallax
+            // Background needs: viewport height + scroll distance + parallax offset + buffer
+            const parallaxOffset = scrollDistance * parallaxSpeed;
+            const totalHeight = windowHeight + scrollDistance + parallaxOffset + (windowHeight * 3);
+
+            parallaxBg.style.height = totalHeight + 'px';
+            parallaxBg.style.top = -(windowHeight * 1.5) + 'px';
+        }
+
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxSpeed = 0.5; // Adjust this value for parallax intensity (0.3-0.7 recommended)
+
+            if (parallaxBg) {
+                parallaxBg.style.transform = `translate3d(0, ${scrolled * parallaxSpeed}px, 0)`;
+            }
+
+            ticking = false;
+        }
+
+        // Initialize parallax height
+        setParallaxHeight();
+
+        // Update height on window resize and after page loads
+        window.addEventListener('resize', setParallaxHeight);
+        window.addEventListener('load', setParallaxHeight);
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
         // Back to top functionality
         const backToTopButton = document.getElementById('back-to-top');
 
-        // Show/hide button and change color based on button position
+        // Show/hide button on scroll
         window.addEventListener('scroll', function() {
-            const aboutSection = document.getElementById('about');
-            const pancakeAiSection = document.getElementById('pancake-ai');
-            const dataPrivacySection = document.getElementById('data-privacy');
-            const footer = document.querySelector('footer');
-
-            // Get section positions
-            const aboutTop = aboutSection.offsetTop;
-            const pancakeAiTop = pancakeAiSection.offsetTop;
-            const dataPrivacyTop = dataPrivacySection.offsetTop;
-            const footerTop = footer.offsetTop;
-
             // Show/hide button
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.remove('opacity-0', 'invisible');
@@ -262,22 +371,6 @@
             } else {
                 backToTopButton.classList.add('opacity-0', 'invisible');
                 backToTopButton.classList.remove('opacity-100', 'visible');
-            }
-
-            // Get button position (its center point)
-            const buttonRect = backToTopButton.getBoundingClientRect();
-            const buttonPosition = window.pageYOffset + buttonRect.top + (buttonRect.height / 2);
-
-            // Change button color based on which section the button is over
-            if ((buttonPosition >= aboutTop && buttonPosition < pancakeAiTop) ||
-                (buttonPosition >= dataPrivacyTop && buttonPosition < footerTop)) {
-                // Button is over green sections (About or Data Privacy) - make button white
-                backToTopButton.classList.remove('bg-[#279B75]', 'hover:bg-[#2E8B57]', 'text-white');
-                backToTopButton.classList.add('bg-white', 'hover:bg-gray-100', 'text-[#279B75]');
-            } else {
-                // Button is over white/gray sections (Home, Pancake AI, or Footer) - make button green
-                backToTopButton.classList.remove('bg-white', 'hover:bg-gray-100', 'text-[#279B75]');
-                backToTopButton.classList.add('bg-[#279B75]', 'hover:bg-[#2E8B57]', 'text-white');
             }
         });
 
