@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our Mission - Pancake</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Mission - Pancake">
+    <meta property="og:description" content="At Pancake, we believe budgeting should be a source of comfort and security, not stress. Take control of your finances — one stack at a time.">
+    <meta property="og:image" content="https://pancakemoney.com/images/PancakeAppLogo/PancakeMoneySquareW.png">
+    <meta property="og:url" content="https://pancakemoney.com/about">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pancake">
+
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="At Pancake, we believe budgeting should be a source of comfort and security, not stress. Take control of your finances — one stack at a time.">
+    <link rel="canonical" href="https://pancakemoney.com/about">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../images/PancakeAppLogo/PancakeMoneyLogo.svg">
+    <link rel="apple-touch-icon" href="../images/PancakeAppLogo/PancakeMoney.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Parallax background styles */
+        .parallax-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 400%;
+            background-image:
+                url('../images/images/2.svg'),
+                url('../images/images/2.svg');
+            background-size:
+                50px 100px,
+                50px 100px;
+            background-position:
+                0 0,
+                75px 50px;
+            background-repeat: repeat;
+            will-change: transform;
+            transform: translateZ(0);
+            opacity: 0.7;
+        }
+        /* Responsive background sizing */
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-size:
+                    40px 80px,
+                    40px 80px;
+                background-position:
+                    0 0,
+                    60px 40px;
+            }
+        }
+        /* Ensure content stays above parallax */
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+        /* Optimize SVG rendering */
+        .svg-crisp {
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            shape-rendering: geometricPrecision;
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-container">
+        <div class="parallax-bg" id="parallax-bg"></div>
+    </div>
+
+    <!-- NavBar -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/90 backdrop-blur-md shadow-lg rounded-full px-6 md:px-8 py-3">
+        <div class="flex items-center gap-6 md:gap-8">
+            <!-- Left: Logo + Pancake -->
+            <div class="flex items-center gap-2">
+                <a href="/">
+                    <img src="../images/PancakeAppLogo/PancakeMoney.png" alt="Pancake Logo" class="w-7 h-7 object-contain" />
+                </a>
+                <a href="/" class="text-2xl md:text-3xl font-bold text-black">Pancake</a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="/about/" class="text-sm font-medium text-[#279B75] transition-colors">Our Mission</a>
+                <a href="/smarter-budgeting/" class="text-sm font-medium text-gray-700 hover:text-[#279B75] transition-colors">Smarter Budgeting</a>
+                <a href="/privacy/" class="text-sm font-medium text-gray-700 hover:text-[#279B75] transition-colors">Privacy</a>
+                <a href="/contact/" class="text-sm font-medium text-gray-700 hover:text-[#279B75] transition-colors">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center pt-24 pb-16 px-6">
+        <div class="w-full max-w-6xl bg-[#279B75]/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
+            <div class="flex md:flex-row flex-col items-center justify-center gap-8 md:gap-12">
+                <!-- Mission Text -->
+                <div class="md:w-1/2 lg:w-5/12 text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 md:mb-6">Our Mission</h1>
+                    <p class="text-base sm:text-lg text-white leading-relaxed">
+                        Consumer debt is at an all time high, and cost of living seems to go up by the hour.
+                        At Pancake, we understand that confronting our finances can feel too time-consuming, overwhelming, and anxiety-inducing.
+                        We think budgeting should be a source of comfort and security, not stress. No more spreadsheets or guesswork.
+                        We want to help you take control of your finances — one stack at a time.
+                    </p>
+                </div>
+
+                <!-- Image Carousel -->
+                <div class="md:w-3/5 lg:w-2/3 flex flex-col items-center justify-center">
+                    <div class="relative w-full max-w-lg md:max-w-xl lg:max-w-3xl">
+                        <!-- Carousel Images -->
+                        <div class="carousel-container overflow-hidden" role="region" aria-label="App screenshots carousel" aria-live="polite">
+                            <div id="carousel-track" class="carousel-track flex transition-transform duration-500 ease-in-out">
+                                <img src="../images/images/categories.svg" alt="Pancake app categories screen showing expense categories" class="svg-crisp w-full flex-shrink-0 scale-[2.5]" loading="lazy">
+                                <img src="../images/images/budget.svg" alt="Pancake app budget screen showing budget tracking" class="svg-crisp w-full flex-shrink-0 scale-[2.5]" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls: Arrows and Dots -->
+                    <div class="flex items-center justify-center gap-4 mt-4">
+                        <!-- Left Arrow -->
+                        <button id="carousel-prev" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30 hover:bg-white/50 transition-colors focus:outline-none focus:ring-2 focus:ring-white cursor-pointer" aria-label="Previous image">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Dots -->
+                        <div class="flex gap-2" role="tablist" aria-label="Image carousel navigation">
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white" data-index="0" role="tab" aria-label="Show categories image" aria-selected="true" tabindex="0"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white" data-index="1" role="tab" aria-label="Show budget image" aria-selected="false" tabindex="-1"></button>
+                        </div>
+
+                        <!-- Right Arrow -->
+                        <button id="carousel-next" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/30 hover:bg-white/50 transition-colors focus:outline-none focus:ring-2 focus:ring-white cursor-pointer" aria-label="Next image">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full flex items-center justify-center px-6 py-10 md:py-16 md:px-12 lg:px-24 mb-10 md:mb-16">
+        <div class="w-full max-w-6xl bg-gray-100/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12">
+            <div class="flex flex-col md:flex-row md:justify-between gap-10 md:gap-16">
+                <!-- Pancake Subsection -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Pancake</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/privacy/" class="text-gray-600 hover:text-[#279B75] transition-colors">Privacy</a>
+                        </li>
+                        <li>
+                            <a href="/terms/" class="text-gray-600 hover:text-[#279B75] transition-colors">Terms of Service</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Us Subsection -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Contact Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://www.instagram.com/pancake.money/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                            <img src="../images/AppsLogos/Instagram_Glyph_Black.jpg" alt="Follow us on Instagram" class="w-10 h-10 hover:scale-110 transition-transform" />
+                        </a>
+                        <a href="https://x.com/pancake_money" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+                            <img src="../images/AppsLogos/x-logo-black.png" alt="Follow us on X" class="w-10 h-10 hover:scale-110 transition-transform" />
+                        </a>
+                        <a href="https://www.linkedin.com/company/pancakemoney/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+                            <svg class="w-10 h-10 hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-gray-600">
+                        Need help?
+                        <a href="mailto:support@pancakemoney.com" class="text-[#279B75] hover:underline font-semibold">
+                            Email our support team
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-10 pt-6 border-t border-gray-300">
+                <p class="text-gray-500 text-sm">&copy; 2025 Pancake Money LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Parallax scrolling functionality
+        const parallaxBg = document.getElementById('parallax-bg');
+        let ticking = false;
+
+        function setParallaxHeight() {
+            const docHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
+            const scrollDistance = docHeight - windowHeight;
+            const parallaxSpeed = 0.5;
+
+            const parallaxOffset = scrollDistance * parallaxSpeed;
+            const totalHeight = windowHeight + scrollDistance + parallaxOffset + (windowHeight * 3);
+
+            parallaxBg.style.height = totalHeight + 'px';
+            parallaxBg.style.top = -(windowHeight * 1.5) + 'px';
+        }
+
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxSpeed = 0.5;
+
+            if (parallaxBg) {
+                parallaxBg.style.transform = `translate3d(0, ${scrolled * parallaxSpeed}px, 0)`;
+            }
+
+            ticking = false;
+        }
+
+        setParallaxHeight();
+
+        window.addEventListener('resize', setParallaxHeight);
+        window.addEventListener('load', setParallaxHeight);
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
+        // Carousel functionality
+        const carouselTrack = document.getElementById('carousel-track');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        let currentSlide = 0;
+        const totalSlides = 2;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update dots styling and accessibility
+            carouselDots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white');
+                    dot.setAttribute('aria-selected', 'true');
+                    dot.setAttribute('tabindex', '0');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/50');
+                    dot.setAttribute('aria-selected', 'false');
+                    dot.setAttribute('tabindex', '-1');
+                }
+            });
+        }
+
+        // Click handlers for dots
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Arrow button handlers
+        prevBtn.addEventListener('click', () => {
+            const prevSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(prevSlide);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const nextSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(nextSlide);
+        });
+
+        // Keyboard navigation
+        document.querySelector('[role="tablist"]').addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                const nextSlide = (currentSlide + 1) % totalSlides;
+                goToSlide(nextSlide);
+                carouselDots[nextSlide].focus();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                const prevSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(prevSlide);
+                carouselDots[prevSlide].focus();
+            }
+        });
+
+        // Auto-rotate every 7 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }, 7000);
+
+        // Initialize first dot as active
+        goToSlide(0);
+    </script>
+</body>
+</html>
